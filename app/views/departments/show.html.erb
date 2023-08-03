@@ -1,0 +1,19 @@
+<div class="mt-5">
+  <p>
+    <strong>Name</strong>
+    <%= @department.name %>
+  </p>
+
+  <p>
+    <strong>Location</strong>
+    <%= @department.location %>
+  </p>
+
+  <div class="d-flex" style="margin: 0;"> 
+    <%= button_to "Edit", {:controller => "departments", :action => "edit" } , :method=>:get,class:"btn btn-outline-success"%>&nbsp;&nbsp;
+  
+    <%= button_to "Destroy", @department, method: :delete, class:"btn btn-outline-success" %>&nbsp;&nbsp;
+  
+    <%= button_to "Back", {:controller => "departments", :action => "index" } , :method=>:get, class:"btn btn-outline-secondary"%>
+  </div>
+</div>  

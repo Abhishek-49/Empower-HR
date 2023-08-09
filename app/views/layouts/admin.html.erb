@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <title>SB Admin 2 - Dashboard</title>
+
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "admin", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+
+  </head>
+
+  <body id="page-top">
+    <div id="wrapper">
+      <%= render 'shared/admin_sidebar'%>
+      <div id="content-wrapper" class="d-flex flex-column">
+        <div id="content">
+          <%= render 'shared/admin_header'%>
+          <div class="container-fluid">
+            <%= yield %>
+            <%= render 'shared/admin_footer'%>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

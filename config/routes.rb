@@ -1,9 +1,20 @@
 Rails.application.routes.draw do
+  devise_for :employees, controllers: {
+        sessions: 'employees/sessions',
+        passwords: 'employees/passwords',
+        registrations: 'employees/registrations'
+      }
 
-	# root to: "department#index"
-	  resources :departments
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  resources :departments
+  resources :roles
+  resources :employees
+  resources :leaves
+  resources :attendances
+  # other routes as needed
+  root 'employees#index'
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  namespace :admin do
+    get 'dashboard' => 'dashboard#index'
+  end
+
 end

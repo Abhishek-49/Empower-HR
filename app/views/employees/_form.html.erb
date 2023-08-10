@@ -1,0 +1,93 @@
+<%= form_with model: @employee do |form| %>
+    <div class="row">
+
+        <div class="col-lg-6">
+            <div class="    ">
+                <%= form.label :first_name, class: 'mb-2' %>
+                <%= form.text_field :first_name, class: 'form-control '%>
+                <% @employee.errors.full_messages_for(:first_name).each do |message| %>
+                    <p class="text-danger"><%= message %></p>
+                <% end %>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="form-group">
+                <%= form.label :last_name, class: 'mb-2' %>
+                <%= form.text_field :last_name, class: 'form-control '%>
+                <% @employee.errors.full_messages_for(:last_name).each do |message| %>
+                    <p class="text-danger"><%= message %></p>
+                <% end %>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="form-group">
+                <%= form.label :date_of_birth, class: 'mb-2' %>
+                <%= form.date_field :date_of_birth, class: 'form-control '%>
+                <% @employee.errors.full_messages_for(:date_of_birth).each do |message| %>
+                    <p class="text-danger"><%= message %></p>
+                <% end %>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="form-group">
+                <%= form.label :department_id, class: 'mb-2' %>
+                <%= form.text_field :department_id, class: 'form-control '%>
+                <% @employee.errors.full_messages_for(:department_id).each do |message| %>
+                    <p class="text-danger"><%= message %></p>
+                <% end %>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="form-group">
+                <%= form.label :employee_id, class: 'mb-2' %>
+                <%= form.text_field :employee_id, class: 'form-control '%>
+                <% @employee.errors.full_messages_for(:employee_id).each do |message| %>
+                    <p class="text-danger"><%= message %></p>
+                <% end %>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="form-group">
+                <%= form.label :address, class: 'mb-2' %>
+                <%= form.text_field :address, class: 'form-control '%>
+                <% @employee.errors.full_messages_for(:address).each do |message| %>
+                    <p class="text-danger"><%= message %></p>
+                <% end %>
+            </div>
+        </div>
+
+        <div class="col-lg-3">
+            <div class="form-group">
+                <%= form.label :mobile_no, class: 'mb-2' %>
+                <%= form.text_field :mobile_no, class: 'form-control '%>
+                <% @employee.errors.full_messages_for(:mobile_no).each do |message| %>
+                    <p class="text-danger"><%= message %></p>
+                <% end %>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="form-group">
+                <%= form.label :aadhar, class: 'mb-2' %>
+                <%= form.text_field :aadhar, class: 'form-control '%>
+                <% @employee.errors.full_messages_for(:aadhar).each do |message| %>
+                    <p class="text-danger"><%= message %></p>
+                <% end %>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="form-group">
+                <%= form.label :pancard, class: 'mb-2' %>
+                <%= form.text_field :pancard, class: 'form-control '%>
+                <% @employee.errors.full_messages_for(:pancard).each do |message| %>
+                    <p class="text-danger"><%= message %></p>
+                <% end %>
+            </div>
+        </div>
+    </div> 
+    <div class="row">
+        <div class = "col-lg-12">
+            <%= form.submit class: 'btn btn-primary mt-4'%>
+            <%= link_to "Back to Employees", employees_path, class: "btn btn-outline-primary mt-4"%>
+        </div>
+    </div>   
+<% end %>

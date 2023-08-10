@@ -1,0 +1,29 @@
+<div class="col-lg-12">
+    <div class= "card mt-5 mb-5">
+        <div class="card-body">
+            <h2 class="text-center">Employee Details</h2>
+            <div class="row mt-5">
+                <div class="col-lg-6 text">
+                    <h3 class="mb-3">Employee Information</h3>
+                    <p class ="lead"><strong>First Name:-</strong><%= @employee.first_name %></p>
+                    <p class ="lead"><strong>Last Name:-</strong><%= @employee.last_name %></p>
+                    <p class ="lead"><strong>Date Of Birth:-</strong><%= @employee.date_of_birth %></p>
+                    <p class ="lead"><strong>Contact:-</strong><%= @employee.mobile_no %></p>
+                    <p class ="lead"><strong>Email:-</strong><%= @employee.email %></p>
+                    <p class ="lead"><strong>Address:-</strong><%= @employee.address %></p>  
+                </div>
+                <div class="col-lg-6">
+                    <h3 class="mb-3">Comapny Information</h3>
+                    <p class ="lead"><strong>Department ID:-</strong><%= @employee.department_id %></p>
+                    <p class ="lead"><strong>Employee ID:-</strong><%= @employee.employee_id %></p>
+                    <p class ="lead"><strong>Aadhar:-</strong><%= @employee.aadhar%></p>
+                    <p class ="lead"><strong>Pancard:-</strong><%= @employee.pancard%></p>
+                </div>
+            </div>
+
+            
+            <%= link_to 'Back to Employees', employees_path, class: 'btn btn-outline-primary' %>
+            <%= link_to 'Edit Employee', edit_employee_registration_path(@employee), class: 'btn btn-primary' %>
+        </div>
+    </div>
+</div>

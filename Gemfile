@@ -43,7 +43,7 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 
 # bootstrap 5
-gem "bootstrap"
+gem "bootstrap", "~> 5.2.0"
 
 # Use Sass to process CSS
 gem "sassc-rails"
@@ -59,7 +59,7 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
-
+  gem "letter_opener"
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
 
@@ -74,5 +74,6 @@ group :test do
   gem "webdrivers"
 end
 
-gem 'cssbundling-rails'
 gem 'pg'
+gem "jquery-rails"
+gem 'devise', '~> 4.9.2'

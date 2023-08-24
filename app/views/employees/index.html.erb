@@ -5,7 +5,9 @@
             <h2 class="text-center">Listing Employees</h2>
         </div>
     </div>
-    <%= link_to "Create New Employee", new_employee_registration_path, class: "btn btn-primary mb-4 rounded-0" %>
+    <% if can? :create, Employee %>
+        <%= link_to "Create New Employee", new_employee_registration_path, class: "btn btn-primary mb-4 rounded-0" %>
+    <% end %>
     <table class = "table table-bordered ">
         <thead>
             <tr>
@@ -34,9 +36,13 @@
                                 Actions
                             </button>
                             <ul class="dropdown-menu">
-                                <li><%= link_to "Edit", edit_employee_registration_path(employee), class: "dropdown-item"%></li>
+                                <% if can? :edit, employee %>
+                                    <li><%= link_to "Edit", edit_employee_registration_path(employee), class: "dropdown-item"%></li>
+                                <% end %>
                                 <li><%= link_to "View", employee_path(employee), class: "dropdown-item"%></li>
-                                <li><%= link_to "Delete", employee_path(employee), class: "dropdown-item",data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete t his employee?"} %></li>
+                                <% if can? :destroy, employee %>
+                                    <li><%= link_to "Delete", employee_path(employee), class: "dropdown-item",data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete t his employee?"} %></li>
+                                <% end %>
                             </ul>
                         </div>
                     </td>

@@ -2,14 +2,10 @@
 
 
 import "@hotwired/turbo-rails"
-import "./controllers"
-import "jquery";
-import "jquery_ujs";
-import "@popperjs/core";
+import "controllers"
+import "popper"
+import "bootstrap"
 import "css/admin"
-import "bootstrap";
-import "@fortawesome/fontawesome-free/css/all";
-import "my_script";
 
 import "./plugins/jquery.easing.min"
 import "./plugins/sb-admin-2.min"

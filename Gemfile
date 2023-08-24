@@ -43,7 +43,7 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 
 # bootstrap 5
-gem "bootstrap", "~> 5.2.0"
+gem "bootstrap"
 
 # Use Sass to process CSS
 gem "sassc-rails"
@@ -76,4 +76,5 @@ end
 
 gem 'pg'
 gem "jquery-rails"
-gem 'devise', '~> 4.9.2'
+gem 'devise'
+gem 'cancancan'

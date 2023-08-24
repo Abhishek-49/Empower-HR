@@ -4,8 +4,8 @@ class Employee < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  # belongs_to :department
-  # belongs_to :role
+  belongs_to :department
+  belongs_to :role
 
   validates :first_name, :last_name, presence: true
   validates :department_id, presence: true

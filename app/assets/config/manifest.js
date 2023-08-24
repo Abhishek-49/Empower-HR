@@ -1,4 +1,10 @@
 //= link_tree ../images
-//= link_directory ../stylesheets .css
-//= link_tree ../../javascript .js
-//= link_tree ../../../vendor/javascript .js
+//= link_directory ../stylesheets .scss
+//= link jquery3.min.js
+//= link jquery_ujs.js
+//= link application.js
+//= link admin.js
+//= link my_script.js
+//= link controllers/application.js
+//= link controllers/hello_controller.js
+//= link controllers/index.js

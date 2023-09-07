@@ -6,7 +6,13 @@ class EmployeesController < ApplicationController
   before_action :set_employee, only: [:show, :edit, :update, :destroy]
 
   def index
-    @employees = Employee.all
+    if current_employee.role&.superadmin || current_employee.role&.admin
+      # Superadmins and admins can see all employees
+      @employees = Employee.all
+    else
+      # Regular employees can only see their own data
+      @employees = [current_employee]
+    end
   end
 
 
@@ -47,7 +53,7 @@ class EmployeesController < ApplicationController
   private
 
   def employee_params
-    params.require(:employee).permit(:first_name, :last_name, :department_id, :employee_id, :address, :mobile_no, :aadhar, :pancard, :date_of_birth, :role)
+    params.require(:employee).permit(:first_name, :last_name, :department_id, :employee_id, :address, :mobile_no, :aadhar, :pancard, :date_of_birth, :role_id, :image)
   end
   def set_employee
     @employee = Employee.find(params[:id])

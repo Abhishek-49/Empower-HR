@@ -1,5 +1,8 @@
 class EmployeesController < ApplicationController
   layout 'admin'
+  load_and_authorize_resource
+  before_action :authenticate_employee!
+  before_action :current_ability
   before_action :set_employee, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -44,12 +47,15 @@ class EmployeesController < ApplicationController
   private
 
   def employee_params
-    params.require(:employee).permit(:first_name, :last_name, :department_id, :employee_id, :address, :mobile_no, :aadhar, :pancard, :date_of_birth)
+    params.require(:employee).permit(:first_name, :last_name, :department_id, :employee_id, :address, :mobile_no, :aadhar, :pancard, :date_of_birth, :role)
   end
   def set_employee
     @employee = Employee.find(params[:id])
     rescue ActiveRecord::RecordNotFound => error
         redirect_to employees_path, notice: error
+  end
+  def current_ability
+    @current_ability ||= Ability.new(current_employee)
   end
 
 end

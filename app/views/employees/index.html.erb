@@ -22,31 +22,34 @@
         </thead>
         <tbody>
             <% @employees.each do |employee|%>
-                <tr>
-                    <td><%= employee.first_name%></td>
-                    <td><%= employee.last_name%></td>
-                    <td><%= employee.department_id%></td>
-                    <td><%= employee.employee_id%></td>
-                    <td><%= employee.address%></td>
-                    <td><%= employee.mobile_no%></td>
-                    <td><%= employee.date_of_birth%></td>
-                    <td>
-                        <div class="dropdown">
-                            <button class="btn btn-warning btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Actions
-                            </button>
-                            <ul class="dropdown-menu">
-                                <% if can? :edit, employee %>
-                                    <li><%= link_to "Edit", edit_employee_registration_path(employee), class: "dropdown-item"%></li>
-                                <% end %>
-                                <li><%= link_to "View", employee_path(employee), class: "dropdown-item"%></li>
-                                <% if can? :destroy, employee %>
-                                    <li><%= link_to "Delete", employee_path(employee), class: "dropdown-item",data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete t his employee?"} %></li>
-                                <% end %>
-                            </ul>
-                        </div>
-                    </td>
-                </tr>
+
+                <% if can? :read, employee %>
+                    <tr>
+                        <td><%= employee.first_name%></td>
+                        <td><%= employee.last_name%></td>
+                        <td><%= employee.department_id%></td>
+                        <td><%= employee.employee_id%></td>
+                        <td><%= employee.address%></td>
+                        <td><%= employee.mobile_no%></td>
+                        <td><%= employee.date_of_birth%></td>
+                        <td>
+                            <div class="dropdown">
+                                <button class="btn btn-warning btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Actions
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <% if can? :edit, employee %>
+                                        <li><%= link_to "Edit", edit_employee_registration_path(employee), class: "dropdown-item"%></li>
+                                    <% end %>
+                                    <li><%= link_to "View", employee_path(employee), class: "dropdown-item"%></li>
+                                    <% if can? :destroy, employee %>
+                                        <li><%= link_to "Delete", employee_path(employee), class: "dropdown-item",data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete t his employee?"} %></li>
+                                    <% end %>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                <% end %>
             <% end %>
         </tbody>
     </table>

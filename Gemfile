@@ -77,4 +77,6 @@ end
 gem 'pg'
 gem "jquery-rails"
 gem 'devise'
+
 gem 'cancancan'
+gem "font-awesome-sass", "~> 6.4.2"

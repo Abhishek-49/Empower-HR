@@ -4,5 +4,4 @@ import "controllers"
 import "popper"
 import "bootstrap"
 import "css/application"
-
-
+import "@fortawesome/fontawesome-free"

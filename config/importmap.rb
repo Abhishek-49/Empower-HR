@@ -16,8 +16,6 @@ pin "popper", to: 'popper.js', preload: true
 
 pin "bootstrap", to: 'bootstrap.min.js', preload: true
 
-# Use all.js instead of fontawesome.js
-pin "@fortawesome/fontawesome-free", to: "https://ga.jspm.io/npm:@fortawesome/fontawesome-free@6.1.2/js/all.js"
-
 # Custom JS
 pin "my_script", to: "my_script.js", preload: true
+pin "@fortawesome/fontawesome-free", to: "https://ga.jspm.io/npm:@fortawesome/fontawesome-free@6.4.2/js/all.js"

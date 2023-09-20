@@ -50,6 +50,10 @@
             <div class="card-body">
               <h5 class="card-title text-center">Account Details</h5>
               <div class="form-with mb-2">
+                <%= f.label :image %>
+                <%= f.file_field :image, class: "form-control" %>
+              </div>
+              <div class="form-with mb-2">
                 <%= f.label :aadhar %>
                 <%= f.number_field :aadhar, class: "form-control" %>
               </div>

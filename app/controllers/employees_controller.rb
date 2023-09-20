@@ -7,10 +7,8 @@ class EmployeesController < ApplicationController
 
   def index
     if current_employee.role&.superadmin || current_employee.role&.admin
-      # Superadmins and admins can see all employees
       @employees = Employee.all
     else
-      # Regular employees can only see their own data
       @employees = [current_employee]
     end
   end
@@ -65,3 +63,4 @@ class EmployeesController < ApplicationController
   end
 
 end
+ 

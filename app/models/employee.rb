@@ -8,6 +8,7 @@ class Employee < ApplicationRecord
   belongs_to :department
   belongs_to :role
   has_one_attached :image
+  has_many :leaves
 
 
   validates :first_name, :last_name, presence: true

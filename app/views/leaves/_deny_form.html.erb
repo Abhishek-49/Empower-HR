@@ -1,0 +1,9 @@
+<%= form_for @leave, url: deny_leave_path(@leave), method: :put do |f| %>
+  <div class="form-group">
+    <%= f.label :admin_denial_reason, 'Reason for Denial' %>
+    <%= f.text_area :admin_denial_reason, class: 'form-control', rows: 3 %>
+  </div>
+  <div class="text-center">
+    <%= f.submit 'Deny Leave Request', class: 'btn btn-danger' %>
+  </div>
+<% end %>

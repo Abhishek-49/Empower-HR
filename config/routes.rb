@@ -8,8 +8,13 @@ Rails.application.routes.draw do
   resources :departments
   resources :roles
   resources :employees
-  resources :leaves
   resources :attendances
+  resources :leaves do
+    member do
+      patch 'approve' # Route for approving leave request
+      patch 'deny'    # Route for denying leave request
+    end
+  end
   # other routes as needed
   root 'employees#index'
 

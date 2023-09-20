@@ -1,1 +1,41 @@
-sasdasd
+<h1>Leave Requests</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Employee</th>
+      <th>Leave Type</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th>Duration</th>
+      <th>Leave Status</th>
+      <th>Leave Balance</th>
+      <th>Reason</th>
+      <th>Submission Date</th>
+      <th>Approval</th>
+      <th>Denial Reason</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @leave.each do |leave| %>
+      <tr>
+        <td><%= leave.employee&.first_name %></td>
+        <td><%= leave.leave_type %></td>
+        <td><%= leave.start_date.strftime('%Y-%m-%d') %></td>
+        <td><%= leave.end_date.strftime('%Y-%m-%d') %></td>
+        <td><%= leave.duration %></td>
+        <td><%= leave.leave_status %></td>
+        <td><%= leave.leave_balance %></td>
+        <td><%= leave.reason %></td>
+        <td><%= leave.submission_date.strftime('%Y-%m-%d %H:%M:%S') %></td>
+        <td><%= leave.approval %></td>
+        <td><%= leave.denial_reason %></td>
+        <td>
+          <%= link_to 'Approve', approve_leave_path(leave), method: :put, class: 'btn btn-success btn-sm' %>
+          <%= link_to 'Deny', deny_leave_path(leave), class: 'btn btn-danger btn-sm', data: { toggle: 'modal', target: "#denyModal#{leave.id}" } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>	
+</table>
